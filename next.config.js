@@ -1,4 +1,4 @@
-const API_KEY = "9311f9c76d41e0b63ff5ebae7ff79125";
+const API_KEY = process.env.API_KEY;
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -18,6 +18,10 @@ const nextConfig = {
       {
         source: "/api/movies",
         destination: `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`,
+      },
+      {
+        source: `/api/movies/:id`,
+        destination: `https://api.themoviedb.org/3/movie/:id?api_key=${API_KEY}`,
       },
     ];
   },

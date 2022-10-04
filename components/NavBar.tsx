@@ -14,9 +14,14 @@ export default function NavBar() {
       <img src="/vercel.svg" alt="" />
       <NavWrapper>
         <Link href="/">
-          <a>home</a>
+          <HomeLink pathname={router.pathname}>Home</HomeLink>
         </Link>
-        <Link href="/login">login</Link>
+        <Link href="/login">
+          <LoginLink pathname={router.pathname}>Login</LoginLink>
+        </Link>
+        <Link href="/about">
+          <AboutLink pathname={router.pathname}>About</AboutLink>
+        </Link>
       </NavWrapper>
       {/* <div onClick={handleReload}>reload</div> */}
     </NavContainer>
@@ -31,9 +36,26 @@ const NavContainer = styled.nav`
   flex-direction: column;
   align-items: center;
   padding: ${({ theme }) => theme.layouts.SMALL};
+  a {
+  }
 `;
 
 const NavWrapper = styled.div`
   display: flex;
   gap: 10px;
+`;
+
+const HomeLink = styled.a<{ pathname: string }>`
+  color: ${(props) => (props.pathname === "/" ? "tomato" : "black")};
+  cursor: pointer;
+`;
+
+const LoginLink = styled.a<{ pathname: string }>`
+  color: ${(props) => (props.pathname === "/login" ? "tomato" : "black")};
+  cursor: pointer;
+`;
+
+const AboutLink = styled.a<{ pathname: string }>`
+  color: ${(props) => (props.pathname === "/login" ? "tomato" : "black")};
+  cursor: pointer;
 `;
