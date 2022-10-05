@@ -1,4 +1,5 @@
 import { getMovies } from "apis/movies";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
@@ -45,10 +46,10 @@ export default function Home({ results }: { results: any }) {
               onClick={() => moveDetailPage(movies.id, movies.title)}
               key={movies.id}
             >
-              <img
-                src={`https://image.tmdb.org/t/p/original/${movies.poster_path}`}
+              <Image
                 alt=""
-              />
+                src={`https://image.tmdb.org/t/p/original/${movies.poster_path}`}
+              ></Image>
               <div>{movies.title}</div>
             </MovieWrapper>
           );
